@@ -19,8 +19,7 @@ const applicationTables = {
     worksheetsProcessed: v.optional(v.array(v.string())),
   })
     .index("byUser", ["createdBy"])
-    .index("byStatus", ["status"])
-    .index("byCreationTime", ["_creationTime"]),
+    .index("byStatus", ["status"]),
 
   fileStatistics: defineTable({
     processedFileId: v.id("processedFiles"),
