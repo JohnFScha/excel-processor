@@ -1,0 +1,250 @@
+Codigo,Nombre,Direccion,Telefono,Email,CUIT,Condicion Iva,Persona Contacto,Codigo Lista precios,Visita Lunes,Visita Martes,Visita Miercoles,Visita Jueves,Visita Viernes,Visita Sábado,Visita Domingo,,,
+1,NÁPOLES RICHIERI. - Richieri ,Richieri ,SN,SN,23313319989,RESPONSABLE INSCRIPTO,SN,10083,X,,,X,,,,,, - 
+2,NÁPOLES TALLERES. - Talleres ,Talleres ,SN,SN,23313319989,RESPONSABLE INSCRIPTO,SN,10083,X,,,X,,,,,, - 
+3,NÁPOLES VALPARAÍSO. - Valparaíso ,Valparaíso ,SN,SN,23313319989,RESPONSABLE INSCRIPTO,SN,10083,X,,,X,,,,,, - 
+4,VERONA RICHIERI. - Richieri ,Richieri ,SN,SN,30716089327,RESPONSABLE INSCRIPTO,SN,10083,X,,,,X,,,,, - 
+5,VERONA RÍO NEGRO. - Rio Negro ,Rio Negro ,SN,SN,30716089327,RESPONSABLE INSCRIPTO,SN,10083,X,,,,X,,,,, - 
+6,VERONA O'HIGGINS. - O'Higgins ,O'Higgins ,SN,SN,30716089327,RESPONSABLE INSCRIPTO,SN,10083,X,,X,,X,,,,, - 
+7,VERONA VALLE. - Rep. China,Rep. China,SN,SN,30716089327,RESPONSABLE INSCRIPTO,SN,10083,X,,X,,X,,,,, - 
+8,VERONA LA DOCTA. - Bv. del Canal man 22 lote 13.,Bv. del Canal man 22 lote 13.,SN,SN,30716089327,RESPONSABLE INSCRIPTO,SN,10083,,,X,,X,,,,, - 
+9,ADRIANA. - Pigue S/N.,Pigue S/N.,SN,SN,27361393835,MONOTRIBUTISTA,SN,10083,,,,,,,,,, - 
+10,ADRIAN. - Sampacho 2932.,Sampacho 2932.,SN,SN,33716669799,RESPONSABLE INSCRIPTO,SN,10083,,,,,,,,,, - 
+11,ALTO TEJEDA. - Esperanza 3922.,Esperanza 3922.,SN,SN,27292537447,CONSUMIDOR FINAL,SN,10083,,,,,,,,,, - 
+12,POLACA  - Celso Barrios 2391.,Celso Barrios 2391.,SN,SN,27372237282,RESPONSABLE INSCRIPTO,SN,10083,,X,,,X,,,,, - 
+13,ANDREA PROVINCIAS. - Provincia Vascongada 2297.,Provincia Vascongada 2297.,SN,SN,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,X,,,,,,,, - 
+14,CAÑETE  - Pasaje Calla 2536.,Pasaje Calla 2536.,SN,SN,20390697806,MONOTRIBUTISTA,SN,10083,,X,,,,,,,, - 
+15,CECILIA. - Agustín Garzón S/N.,Agustín Garzón S/N.,SN,SN,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,X,,,,,,,, - 
+16,CHANO. - Learte 2533.,Learte 2533.,SN,SN,27063982534,RESPONSABLE INSCRIPTO,SN,10083,,X,,,,,,,, - 
+17,CRISTINA. - Chamical 2791.,Chamical 2791.,SN,SN,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,X,,,,,,,, - 
+18,DARIO. - Interfabrica ,Interfabrica ,SN,SN,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,,,,,,,,, - 
+19,ANGUS. - Obispo Oro.,Obispo Oro.,SN,SN,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,,X,,,,,,, - 
+20,JULIETA. - Camino San Carlos s/N.,Camino San Carlos s/N.,SN,SN,20355788696,RESPONSABLE INSCRITOS,SN,10083,,,X,,,,,,, - 
+21,MOLOCO. - Av. O'Higgins 6790.,Av. O'Higgins 6790.,SN,SN,20204538647,RESPONSABLE INSCRITOS,SN,10083,,,X,,X,,,,, - 
+22,TRES HERMANO. - Av. Dan Martín Bower.,Av. Dan Martín Bower.,SN,SN,SIN INFORMACION,CONSUMIDOR FINAL.,SN,10083,,,,,,,,,, - 
+23,SANTA RITA. - ,,,,SIN INFORMACION,CONSUMIDOR FINAL.,SN,10083,,,,,,,,,, - 
+24,EL CLUB. - BARADERO  2671.,BARADERO  2671.,,,27185305614, MONOTRIBUTISTA,SN,10083,,,,,,,,,, - 
+25,EL GRINGO  - O'Higgins y J. Días.,O'Higgins y J. Días.,,,SIN INFORMACION,CONSUMIDOR FINAL.,SN,10083,,,X,,,,,,, - 
+26,KARI. - BARADERO ,BARADERO ,,,20275492699,RESPONSABLE INSCRITO,SN,10083,,,X,,X,,,,, - 
+27,TOKO. - BARADERO 2574.,BARADERO 2574.,,,23267595399,RESPONSABLE INSCRITO,SN,10083,,,X,,X,,,,, - 
+28,LA NUEVA. - Av. Sabattini 4309.,Av. Sabattini 4309.,,,SIN INFORMACION,CONSUMIDOR FINAL.,SN,10083,,X,,,,,,,, - 
+29,PANDA. - Tristán Narvaja 1836.,Tristán Narvaja 1836.,,,20390590181,CONSUMIDOR FINAL.,SN,10083,,,X,,,,,,, - 
+30,R. HIJOS. - Av. Sabattini ,Av. Sabattini ,,,30714633984,RESPONSABLE INSCRITO,SN,10083,,,,,,,,,, - 
+31,FULL. - Republica de China 1492.,Republica de China 1492.,,,307166928353,RESPONSABLE INSCRITO,SN,10083,,,,,,,,,, - 
+32,FRIGORÍFICO SAN CRLOS. - O'HIGGINS 2517,O'HIGGINS 2517,,,30715533096,RESPONSABLE INSCRIPTO,SN,10083,X,,,X,,,,,, - 
+33,NECOCHEA. - NECOCHA 2793,NECOCHA 2793,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,,,,,,,,, - 
+34,PUNTO O'HIGGINS. - O'HIGGINS 2822,O'HIGGINS 2822,,,20256346223,RESPONSABLE INSCRIPTO,SN,10083,,X,X,,,,,,, - 
+35,J. F. J. DIAS. - O'Higgins 2997,O'Higgins 2997,,,27350901650,RESPONSABLE INSCRIPTO,SN,10083,,X,,,,,,,, - 
+36,J.F. REVOLUCIÓN. - Revolución y Castilla.,Revolución y Castilla.,,,27350901650,RESPONSABLE INSCRIPTO,SN,10083,,X,,,,,,,, - 
+37,JIRET  - Barcelona 2381.,Barcelona 2381.,,,23426943484,MONOTRIBUTISTA,SN,10083,,X,,,,,,,, - 
+38,MADRID  - Madrid.,Madrid.,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,,,X,,,,,, - 
+39,LITO. - Punilla 2155,Punilla 2155,,,20304693879,RESPONSABLE INSCRIPTO,SN,10083,,,,,,,,,, - 
+40,LA NOE. - Cangallo y Agustín Garzón.,Cangallo y Agustín Garzón.,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,X,,,X,,,,,, - 
+41,LUISA. - Richieri 2108.,Richieri 2108.,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,,,,,,,,, - 
+42,PESCADERÍA. - Richieri 3061.,Richieri 3061.,,,23208120409,MONOTRIBUTISTA,SN,10083,,,,X,,,,,, - 
+43,VERDULERÍA. - Cárcamo.,Cárcamo.,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,X,,,,,,,,, - 
+44,CIRO. - Richieri 3026,Richieri 3026,,,20257587194,RESPONSABLE INSCRIPTO,SN,10083,,,,,,,,,, - 
+45,HECTOR. - Richieri y Cris Roja.,Richieri y Cris Roja.,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,,,,,,,,, - 
+46,EL GRINGO. - O'Higgins  3009,O'Higgins  3009,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,X,,,,,,,, - 
+47,MABEL. - Alfonso Muñecas 3889,Alfonso Muñecas 3889,,,27166834843,RESPONSABLE INSCRIPTO,SN,10083,,X,,,,X,,,, - 
+48,GONZALES. - Salvador Carril 4601,Salvador Carril 4601,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,,,,,,,,, - 
+49,CARRIL. - Salvador del Carril 4636,Salvador del Carril 4636,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,,,,,,,,, - 
+50,SUCCO. - Boedo entre Rosales y Arisa,Boedo entre Rosales y Arisa,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,X,,X,,,,,, - 
+51,POROTA. - Cangallo.,Cangallo.,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,X,,,,,,,, - 
+52,ESTRADA  - ESTRADA 95.,ESTRADA 95.,,,SIN INFORMACION,CONSUMIDOR FINAL,SN,10083,,,X,,,,,,, - 
+53,THOMPSON. - Mal así 3295,Mal así 3295,,,27310415451,RESPONSABLE INSCRIPTO,SN,10083,,,X,,,,,,, - 
+54,NIKI  - Quilmes 3382,Quilmes 3382,,,27204390768,RESPONSABLE INSCRITOS.,SN,10083,,X,,,,,,,, - 
+55,YAMILA. - Cangallo 2996.,Cangallo 2996.,,,SIN INFORMACION,MONOTRIBUTISTA.,SN,10083,,,,,,,,,, - 
+56,ALE 1. - Chirino Posada S/N.,Chirino Posada S/N.,,,20416005916,MONOTRIBUTISTA.,SN,10083,,,,X,,,,,, - 
+57,Terra Mía. - Manuel Parga 3506,Manuel Parga 3506,,,2729208287,RESPONSABLE INSCRIPTO,SN,10083,,X,X,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
+,,,,,,,,,,,,,,,,,, - 
