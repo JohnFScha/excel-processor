@@ -82,7 +82,7 @@ export function PWAInstallPrompt() {
       <div className="flex items-center space-x-3">
         <Download className="h-5 w-5 text-primary" />
         <div>
-          <p className="text-sm font-medium">Instalar Splitty</p>
+          <p className="text-sm font-medium">Instalar Procesador</p>
           <p className="text-xs text-muted-foreground">Agrega a tu pantalla de inicio para un acceso rápido</p>
         </div>
       </div>
