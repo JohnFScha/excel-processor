@@ -153,31 +153,16 @@ export function ExcelProcessorComponent() {
 
   return (
     <div className="w-full mx-auto lg:mx-0 p-6">
-      {/* Header */}
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle className="flex items-start gap-2">
-            <FileSpreadsheet className="h-6 w-6" />
-            Procesador de Excel
-          </CardTitle>
-          <CardDescription>
-            Sube archivos de Excel (.xlsx o .xls) para procesarlos de acuerdo con la lógica de negocio.
-            Admite el procesamiento por lotes de varios archivos con distribuidor, lista de precios,
-            lista de precios tradicional y hojas de trabajo de clientes.
-          </CardDescription>
-        </CardHeader>
-      </Card>
-
       {/* Main Content - Responsive Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left Column - File Upload and Errors */}
         <div className="space-y-6">
-          <Card>
-            <CardContent className="p-6">
+          <Card className='h-[50%]'>
+            <CardContent className="p-6 h-full">
               {/* File Upload Section */}
               <div
                 className={cn(
-                  "border-2 border-dashed rounded-lg p-8 text-center transition-colors",
+                  "h-full border-2 border-dashed rounded-lg p-8 text-center transition-colors",
                   "hover:border-primary/50 hover:bg-primary/5",
                   isProcessing && "pointer-events-none opacity-50"
                 )}
@@ -195,7 +180,7 @@ export function ExcelProcessorComponent() {
                 />
                 
                 {isProcessing ? (
-                  <div className="space-y-4">
+                  <div className="h-full space-y-4 flex flex-col justify-center">
                     <Loader2 className="h-12 w-12 mx-auto text-primary animate-spin" />
                     <div className="space-y-2">
                       <p className="text-lg font-medium">Procesando archivos...</p>
@@ -206,7 +191,7 @@ export function ExcelProcessorComponent() {
                     </div>
                   </div>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="h-full space-y-4 flex flex-col justify-center">
                     <Upload className="h-12 w-12 mx-auto text-muted-foreground" />
                     <div className="space-y-2">
                       <p className="text-lg font-medium">
@@ -219,7 +204,7 @@ export function ExcelProcessorComponent() {
                     <Button 
                       onClick={handleUploadClick}
                       disabled={isProcessing}
-                      className="mt-4"
+                      className="mt-4 max-w-fit mx-auto"
                     >
                       Seleccionar archivos
                     </Button>
