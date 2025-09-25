@@ -13,9 +13,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Splitty v1',
-        short_name: 'Splitty',
-        description: 'Splitty account balance management v1',
+        name: 'Procesador de excel',
+        short_name: 'Procesador de excel',
+        description: 'Procesador de excel v1',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
