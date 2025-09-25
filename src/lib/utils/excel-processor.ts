@@ -5,12 +5,54 @@
 import { createWorkbook, readExcelWorkbook, downloadFile } from './excel';
 import { condicionIva } from './index';
 
+// Required columns for each worksheet
+const REQUIRED_COLUMNS = {
+  'DISTRIBUIDOR': ['Codigo', 'Nombre', 'CUIT', 'Telefono', 'Email', 'Condicion Iva', 'Persona Contacto'],
+  'LISTA DE PRECIOS': ['Codigo', 'Nombre'],
+  'LISTA DE PRECIOS TRADICIONAL': [
+    'Codigo de Lista',
+    'Código Producto Bimbo',
+    'Nombre del Producto',
+    'Marca',
+    'Categoria del producto',
+    'Precio Sin IVA',
+    '% IVA',
+    'Precio con IVA'
+  ],
+  'CLIENTES': [
+    'Codigo',
+    'Nombre',
+    'Direccion',
+    'Telefono',
+    'Email',
+    'CUIT',
+    'Condicion Iva',
+    'Persona Contacto',
+    'Codigo Lista precios',
+    'Visita Lunes',
+    'Visita Martes',
+    'Visita Miercoles',
+    'Visita Jueves',
+    'Visita Viernes',
+    'Visita Sábado',
+    'Visita Domingo'
+  ]
+};
+
 // Types for the processor
+export interface ColumnValidationResult {
+  sheetName: string;
+  missingColumns: string[];
+  addedColumns: string[];
+  existingColumns: string[];
+}
+
 export interface ProcessingResult {
   success: boolean;
   fileName: string;
   message: string;
   errors?: string[];
+  columnValidation?: ColumnValidationResult[];
   processedData?: {
     distribuidor?: ProcessedDistribuidor[];
     listaPrecios?: ProcessedListaPrecios[];
@@ -115,8 +157,11 @@ export async function processExcelFile(file: File): Promise<ProcessingResult> {
       };
     }
 
+    // Validate and add missing columns
+    const { updatedData, validationResults } = validateAndAddMissingColumns(workbookData);
+
     // Process each worksheet
-    const processedData = await processWorksheets(workbookData);
+    const processedData = await processWorksheets(updatedData);
     
     // Generate output file
     await generateOutputFile(file.name, processedData);
@@ -125,6 +170,7 @@ export async function processExcelFile(file: File): Promise<ProcessingResult> {
       success: true,
       fileName: file.name,
       message: 'Archivo procesado con éxito',
+      columnValidation: validationResults,
       processedData
     };
   } catch (error) {
@@ -158,6 +204,100 @@ function validateWorksheets(workbookData: Record<string, (string | number)[][]>)
   }
   
   return errors;
+}
+
+/**
+ * Validate and add missing columns to worksheets
+ */
+function validateAndAddMissingColumns(
+  workbookData: Record<string, (string | number)[][]>
+): { 
+  updatedData: Record<string, (string | number)[][]>; 
+  validationResults: ColumnValidationResult[] 
+} {
+  const updatedData = { ...workbookData };
+  const validationResults: ColumnValidationResult[] = [];
+
+  for (const [sheetName, requiredColumns] of Object.entries(REQUIRED_COLUMNS)) {
+    const worksheetKey = Object.keys(workbookData).find(k => k.toLowerCase() === sheetName.toLowerCase());
+    
+    if (!worksheetKey) continue;
+
+    const worksheetData = workbookData[worksheetKey];
+    if (worksheetData.length === 0) continue;
+
+    const existingHeaders = worksheetData[0].map(h => String(h).trim());
+    const existingColumnsLower = existingHeaders.map(h => h.toLowerCase());
+    
+    const missingColumns: string[] = [];
+    const addedColumns: string[] = [];
+    const existingColumns: string[] = [];
+
+    // Check which columns exist and which are missing
+    for (const requiredCol of requiredColumns) {
+      const requiredColLower = requiredCol.toLowerCase();
+      const found = existingColumnsLower.some(existing => 
+        existing.includes(requiredColLower.split(' ')[0]) || 
+        requiredColLower.includes(existing.split(' ')[0])
+      );
+      
+      if (found) {
+        existingColumns.push(requiredCol);
+      } else {
+        missingColumns.push(requiredCol);
+      }
+    }
+
+    // Add missing columns
+    if (missingColumns.length > 0) {
+      const newHeaders = [...existingHeaders];
+      const newData = worksheetData.map(row => [...row]);
+
+      for (const missingCol of missingColumns) {
+        let insertIndex = newHeaders.length; // Default to end
+
+        // Special positioning logic
+        if (sheetName === 'DISTRIBUIDOR' && missingCol === 'CUIT') {
+          // Insert CUIT to the left of Nombre column
+          const nombreIndex = newHeaders.findIndex(h => h.toLowerCase().includes('nombre'));
+          if (nombreIndex >= 0) {
+            insertIndex = nombreIndex;
+          }
+        } else if (sheetName === 'CLIENTES' && missingCol === 'Codigo Lista precios') {
+          // Insert before Visita Lunes
+          const visitaLunesIndex = newHeaders.findIndex(h => 
+            h.toLowerCase().includes('visita') && h.toLowerCase().includes('lunes')
+          );
+          if (visitaLunesIndex >= 0) {
+            insertIndex = visitaLunesIndex;
+          }
+        }
+
+        // Insert the new column
+        newHeaders.splice(insertIndex, 0, missingCol);
+        addedColumns.push(missingCol);
+
+        // Add empty values for all data rows
+        for (let i = 1; i < newData.length; i++) {
+          newData[i].splice(insertIndex, 0, '');
+        }
+        
+        // Update header row
+        newData[0] = newHeaders;
+      }
+
+      updatedData[worksheetKey] = newData;
+    }
+
+    validationResults.push({
+      sheetName,
+      missingColumns,
+      addedColumns,
+      existingColumns
+    });
+  }
+
+  return { updatedData, validationResults };
 }
 
 /**
@@ -335,15 +475,41 @@ function processListaPreciosTradicionalWorksheet(data: (string | number)[][]): P
 function processClientesWorksheet(data: (string | number)[][], listaPrecios: ProcessedListaPrecios[]): ProcessedClientes[] {
   if (data.length <= 1) return [];
   
-  const headers = data[0].map(h => String(h));
+  let headers = data[0].map(h => String(h));
+  let processedData = [...data];
+  
   const nombreIndex = headers.findIndex(h => h.toLowerCase().includes('nombre'));
   const direccionIndex = headers.findIndex(h => h.toLowerCase().includes('direccion'));
-  const codigoListaPreciosIndex = headers.findIndex(h => h.toLowerCase().includes('codigo lista precios'));
+  let codigoListaPreciosIndex = headers.findIndex(h => h.toLowerCase().includes('codigo lista precios'));
   const condicionIvaIndex = headers.findIndex(h => h.toLowerCase().includes('condicion') && h.toLowerCase().includes('iva'));
   
-  // Rule 8: Validate that "Codigo Lista precios" column exists
+  // Check if "Codigo Lista precios" column exists, if not, insert it before "Visita Lunes"
   if (codigoListaPreciosIndex === -1) {
-    throw new Error('Columna "Codigo Lista precios" no encontrada en la hoja de Clientes');
+    const visitaLunesIndex = headers.findIndex(h => h.toLowerCase().includes('visita') && h.toLowerCase().includes('lunes'));
+    
+    if (visitaLunesIndex === -1) {
+      throw new Error('No se pudo encontrar la columna "Visita Lunes" para insertar "Codigo Lista precios"');
+    }
+    
+    // Insert "Codigo Lista precios" column before "Visita Lunes"
+    headers.splice(visitaLunesIndex, 0, 'Codigo Lista precios');
+    codigoListaPreciosIndex = visitaLunesIndex;
+    
+    // Update the processed data by inserting empty values in the new column position
+    processedData = processedData.map((row, rowIndex) => {
+      if (rowIndex === 0) {
+        // Header row - already updated above
+        return headers;
+      } else {
+        // Data rows - insert empty value at the new column position
+        const newRow = [...row];
+        newRow.splice(visitaLunesIndex, 0, '');
+        return newRow;
+      }
+    });
+    
+    // Update headers reference after modification
+    headers = processedData[0] as string[];
   }
   
   // Get the price list code from Lista de precios worksheet
@@ -351,7 +517,7 @@ function processClientesWorksheet(data: (string | number)[][], listaPrecios: Pro
   
   const codigoIndex = headers.findIndex(h => h.toLowerCase().includes('codigo') && !h.toLowerCase().includes('lista'));
   
-  return data.slice(1).map((row, index) => {
+  return processedData.slice(1).map((row, index) => {
     const result: any = {};
     
     // Rule 5: Make Codigo column auto-incremental starting from 1
@@ -562,9 +728,23 @@ export function formatProcessingResults(results: ProcessingResult[]): string {
       summary += `   Errores: ${result.errors.join(', ')}\n`;
     }
     
+    if (result.columnValidation && result.columnValidation.length > 0) {
+      summary += `   📋 Validación de columnas:\n`;
+      result.columnValidation.forEach(validation => {
+        summary += `      ${validation.sheetName}:\n`;
+        summary += `         ✅ Existentes: ${validation.existingColumns.length}\n`;
+        if (validation.addedColumns.length > 0) {
+          summary += `         ➕ Agregadas: ${validation.addedColumns.join(', ')}\n`;
+        }
+        if (validation.missingColumns.length > 0) {
+          summary += `         ❌ Faltantes: ${validation.missingColumns.join(', ')}\n`;
+        }
+      });
+    }
+    
     if (result.processedData) {
       const { distribuidor, listaPrecios, listaPreciosTradicional, clientes } = result.processedData;
-      summary += `   Procesados: ${distribuidor?.length || 0} distribuidores, ${listaPrecios?.length || 0} listas de precios, ${listaPreciosTradicional?.length || 0} precios tradicionales, ${clientes?.length || 0} clientes\n`;
+      summary += `   📊 Procesados: ${distribuidor?.length || 0} distribuidores, ${listaPrecios?.length || 0} listas de precios, ${listaPreciosTradicional?.length || 0} precios tradicionales, ${clientes?.length || 0} clientes\n`;
     }
     
     summary += '\n';
