@@ -79,7 +79,6 @@ export function testProcessingLogic() {
         ],
         clientes: [
           {
-            ID: 1, // Auto-incremental
             Codigo: 1,
             Nombre: 'Super Ebe - Caferata 776 Ricardone', // Concatenated
             Direccion: 'Caferata 776 Ricardone',
