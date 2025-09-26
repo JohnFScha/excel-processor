@@ -301,7 +301,11 @@ async function processWorksheets(workbookData: Record<string, (string | number)[
   listaPrecios: ProcessedListaPrecios[];
   listaPreciosTradicional: ProcessedListaPreciosTradicional[];
   clientes: ProcessedClientes[];
+  processingErrors: string[];
 }> {
+  // Track processing errors
+  const processingErrors: string[] = [];
+
   // Get worksheet data
   const distribuidorData = findWorksheetData(workbookData, "DISTRIBUIDOR");
   const listaPreciosData = findWorksheetData(workbookData, "LISTA DE PRECIOS");
@@ -309,16 +313,17 @@ async function processWorksheets(workbookData: Record<string, (string | number)[
   const clientesData = findWorksheetData(workbookData, "CLIENTES");
 
   // Process each worksheet
-  const distribuidor = processDistribuidorWorksheet(distribuidorData);
-  const listaPrecios = processListaPreciosWorksheet(listaPreciosData);
-  const listaPreciosTradicional = processListaPreciosTradicionalWorksheet(listaPreciosTradicionalData);
-  const clientes = processClientesWorksheet(clientesData, listaPrecios);
+  const distribuidor = processDistribuidorWorksheet(processingErrors, distribuidorData);
+  const listaPrecios = processListaPreciosWorksheet(processingErrors, listaPreciosData);
+  const listaPreciosTradicional = processListaPreciosTradicionalWorksheet(processingErrors, listaPreciosTradicionalData);
+  const clientes = processClientesWorksheet(processingErrors, clientesData, listaPrecios);
 
   return {
     distribuidor,
     listaPrecios,
     listaPreciosTradicional,
     clientes,
+    processingErrors,
   };
 }
 
@@ -337,7 +342,7 @@ function findWorksheetData(
  * Process distribuidor worksheet - Rule 1: Convert email to uppercase
  * Also handles CUIT validation - transfers non-numeric CUIT values to nombre column
  */
-function processDistribuidorWorksheet(data: (string | number)[][]): ProcessedDistribuidor[] {
+function processDistribuidorWorksheet(errors: string[], data: (string | number)[][]): ProcessedDistribuidor[] {
   if (data.length <= 1) return [];
 
   const headers = data[0].map((h) => String(h));
@@ -402,7 +407,7 @@ function processDistribuidorWorksheet(data: (string | number)[][]): ProcessedDis
 /**
  * Process lista de precios worksheet
  */
-function processListaPreciosWorksheet(data: (string | number)[][]): ProcessedListaPrecios[] {
+function processListaPreciosWorksheet(errors: string[], data: (string | number)[][]): ProcessedListaPrecios[] {
   if (data.length <= 1) return [];
 
   const headers = data[0].map((h) => String(h));
@@ -420,7 +425,7 @@ function processListaPreciosWorksheet(data: (string | number)[][]): ProcessedLis
  * Process lista de precios tradicional worksheet
  * Rules 2-4: Extract brands and categories by product code, validate prices with 21% IVA
  */
-function processListaPreciosTradicionalWorksheet(data: (string | number)[][]): ProcessedListaPreciosTradicional[] {
+function processListaPreciosTradicionalWorksheet(errors: string[], data: (string | number)[][]): ProcessedListaPreciosTradicional[] {
   if (data.length <= 1) return [];
 
   const headers = data[0].map((h) => String(h));
@@ -461,9 +466,15 @@ function processListaPreciosTradicionalWorksheet(data: (string | number)[][]): P
     const precioConIva = result[headers[precioConIvaIndex]];
     const IVA_RATE = 1.21; // 21% IVA rate as multiplier
 
-    // If we only have price with IVA, calculate price without IVA
+    // ALWAYS calculate price WITH IVA from price WITHOUT IVA (when price without IVA exists)
+    // Formula: priceWithIVA = priceWithoutIVA * 1.21
+    if (precioSinIva && typeof precioSinIva === "number" && precioSinIva > 0) {
+      const calculatedPriceWithIVA = precioSinIva * IVA_RATE;
+      result[headers[precioConIvaIndex]] = Math.round(calculatedPriceWithIVA * 100) / 100;
+    }
+    // ONLY if there's no price without IVA, calculate price without IVA from price with IVA
     // Formula: priceWithoutIVA = priceWithIVA / 1.21
-    if (
+    else if (
       precioConIva &&
       typeof precioConIva === "number" &&
       precioConIva > 0 &&
@@ -471,13 +482,7 @@ function processListaPreciosTradicionalWorksheet(data: (string | number)[][]): P
     ) {
       const calculatedPriceWithoutIVA = precioConIva / IVA_RATE;
       result[headers[precioSinIvaIndex]] = Math.round(calculatedPriceWithoutIVA * 100) / 100;
-
-      const calculatedPriceWithIVA = precioSinIva * IVA_RATE;
-      result[headers[precioConIvaIndex]] = Math.round(calculatedPriceWithIVA * 100) / 100;
     }
-
-    const calculatedPrice = precioSinIva * IVA_RATE;
-    result[headers[precioConIvaIndex]] = Math.round(calculatedPrice * 100) / 100;
 
     return result;
   });
@@ -488,6 +493,7 @@ function processListaPreciosTradicionalWorksheet(data: (string | number)[][]): P
  * Rules 5-9: Handle auto-incremental Codigo, name concatenation, and price list codes
  */
 function processClientesWorksheet(
+  errors: string[],
   data: (string | number)[][],
   listaPrecios: ProcessedListaPrecios[]
 ): ProcessedClientes[] {
