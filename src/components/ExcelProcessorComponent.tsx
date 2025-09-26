@@ -157,12 +157,12 @@ export function ExcelProcessorComponent() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left Column - File Upload and Errors */}
         <div className="space-y-6">
-          <Card className='h-[50%]'>
-            <CardContent className="p-6 h-full">
+          <Card>
+            <CardContent className="p-6">
               {/* File Upload Section */}
               <div
                 className={cn(
-                  "h-full border-2 border-dashed rounded-lg p-8 text-center transition-colors",
+                  "border-2 border-dashed rounded-lg p-8 text-center transition-colors",
                   "hover:border-primary/50 hover:bg-primary/5",
                   isProcessing && "pointer-events-none opacity-50"
                 )}
@@ -180,7 +180,7 @@ export function ExcelProcessorComponent() {
                 />
                 
                 {isProcessing ? (
-                  <div className="h-full space-y-4 flex flex-col justify-center">
+                  <div className="space-y-4 flex flex-col justify-center">
                     <Loader2 className="h-12 w-12 mx-auto text-primary animate-spin" />
                     <div className="space-y-2">
                       <p className="text-lg font-medium">Procesando archivos...</p>
@@ -191,7 +191,7 @@ export function ExcelProcessorComponent() {
                     </div>
                   </div>
                 ) : (
-                  <div className="h-full space-y-4 flex flex-col justify-center">
+                  <div className="space-y-4 flex flex-col justify-center">
                     <Upload className="h-12 w-12 mx-auto text-muted-foreground" />
                     <div className="space-y-2">
                       <p className="text-lg font-medium">
